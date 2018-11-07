@@ -22,11 +22,11 @@ if (isset($_GET['borrar'])){
     </style>
 </head>
 <center>
-    <h1>Scout's</h1>
+    <h1>Participantes</h1>
 </center>
 <center>
   <a class="btn btn-success"  href='nuevo_scout.php'>
-    Nuevo Scout
+    Nuevo Participante
   </a>
 </center>
 

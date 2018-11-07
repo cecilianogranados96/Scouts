@@ -35,22 +35,15 @@ if (!isset($_GET['id_area'])){
             while ($rowEmp = mysql_fetch_assoc($resEmp)) {
                 
                 
-                $porcentaje = mysql_query("SELECT SUM(porcentaje) as porcentaje FROM `bitacora` where cedula =  ".$_GET['cedula']."  and id_bitacora=".$rowEmp['id_tipo']." ", $conexion) or die(mysql_error());	
+                $porcentaje = mysql_query("SELECT (SUM(porcentaje)/6) as porcentaje FROM `bitacora` where cedula =  ".$_GET['cedula']."  and id_bitacora=".$rowEmp['id_tipo']." ", $conexion) or die(mysql_error());	
                 $porcentaje = mysql_fetch_assoc($porcentaje);
                 $porcentaje = ($porcentaje['porcentaje'] != "" ) ? $porcentaje['porcentaje'] : 0;
                 
-                
-                
-                
-                 echo " <center><h2><b> ".$rowEmp['nombre']." - $porcentaje%</h2> </center>";
-                
+        
+                 echo " <center><h2><b> ".$rowEmp['nombre']." - ".round($porcentaje,2)."%</h2> </center>";
                 echo "<table class='table' border='2'><tr>";
                 $resEmp1 = mysql_query("SELECT * FROM `area_bitacora` order by id_area ASC", $conexion) or die(mysql_error());
                 while ($rowEmp1 = mysql_fetch_assoc($resEmp1)) {
-                    
-                    
-                    
-                    
                         $porcentaje = mysql_query("SELECT SUM(porcentaje) as porcentaje FROM `bitacora` where cedula =  ".$_GET['cedula']."  and id_bitacora=".$rowEmp['id_tipo']." and area_bitacora=".$rowEmp1['id_area']."  ", $conexion) or die(mysql_error());	
                         $porcentaje = mysql_fetch_assoc($porcentaje);
                         $porcentaje = ($porcentaje['porcentaje'] != "" ) ? $porcentaje['porcentaje'] : 0;
@@ -58,7 +51,7 @@ if (!isset($_GET['id_area'])){
 
                             echo "<td>
                                     <center>
-                                     ".$porcentaje." %<br>
+                                     ".round($porcentaje/6,2)." %<br>
                                         <a class='btn btn-warning' href='bitacora.php?cedula=".$_GET['cedula']."&tipo_bitacora=".$rowEmp['id_tipo']."&id_area=".$rowEmp1['id_area']."'><span class='glyphicon glyphicon-edit'></span> ".$rowEmp1['nombre']."</a>
                                     </center></td> ";
                 }

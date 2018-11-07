@@ -24,7 +24,7 @@ VALUES (
 $insertar_formualario = "
 INSERT INTO `formulario_medico`( cedula, `tipo_sangre`, `descripcion`) VALUES (
     '".$_POST['cedula']."',
-    '".$_POST['tipo_de_sangre']."',
+    '".$_POST['sangre']."',
     '".$_POST['descripcion_enfermedad']."'
 );
     ";
@@ -209,10 +209,10 @@ $encargados = "";
                                         <label class="col-md-12 control-label" for="textinput">Seccion</label>
                                         <div class="col-md-12">
                                             <select class="form-control input-md" name="seccion">
-                                              <option value="manada">Manada</option>
-                                              <option value="tropa">Tropa</option>
-                                              <option value="wak">Wak</option>
-                                              <option value="comunidad">Comunidad</option>
+                                              <option value="Manada">Manada</option>
+                                              <option value="Tropa">Tropa</option>
+                                              <option value="Wak">Wak</option>
+                                              <option value="Comunidad">Comunidad</option>
                                           </select>
                                         </div>
                                     </div>
@@ -353,15 +353,15 @@ $encargados = "";
                                         <h2>Tipo de Sangre</h2>
                                     </center>
 
-                                    <select class="form-control input-md" name="tipo de sangre" style="width:50%">
+                                    <select class="form-control input-md" name="sangre" style="width:50%">
 <option value="Ap">A+</option>
-                  <option value="An">A-</option>
-                  <option value="Bp">B+</option>
-                  <option value="Bn">B-</option>
-                  <option value="Op">O+</option>
-                  <option value="On">O-</option>
-                  <option value="ABp">AB+</option>
-                  <option value="ABn">AB-</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB+">AB-</option>
       </select>
 
                                 </td>
